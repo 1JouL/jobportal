@@ -1,0 +1,29 @@
+{% extends 'account/base.html' %}
+{% block title %}  {{ user_type }}  SignUp.  {% endblock %}
+
+{% block content %}
+<div class="container mt-5 col-md-5">
+    <h2 class="mb-4">Login</h2>
+    <form method="POST">
+        {% csrf_token %}
+
+        <div class="mb-3">
+            <label>Email</label>
+            <input type="email" name="email" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label>Password</label>
+            <input type="password" name="password" class="form-control">
+        </div>
+
+        <button type="submit" class="btn btn-success">Login</button>
+
+        <p class="mt-3">
+            Don't Have an Account?
+            <a href="{% url 'student_signup' %}">SignUp As Student</a>
+            <a href="{% url 'recruiter_signup' %}">SignUp As Recruiter</a>
+        </p>
+    </form>
+</div>
+{% endblock %}
